@@ -9,11 +9,11 @@ const pool = mysql.createPool({
 });
 
 // Test Connection
-let sql = "SELECT * FROM portdb.projects;";
+// let sql = "SELECT * FROM projects;";
 
-pool.execute(sql, function (err, result) {
-  if (err) throw err;
-  console.log(result);
-});
+// pool.execute(sql, function (err, result) {
+//   if (err) throw err;
+//   console.log(result);
+// });
 
 module.exports = pool.promise();

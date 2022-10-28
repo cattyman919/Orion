@@ -3,6 +3,6 @@ const projectControllers = require("../controllers/projectControllers");
 const router = express.Router();
 
 // @route GET && POST - /posts/
-router.route("/").get(projectControllers.getAllProject);
+router.route("/").get(projectControllers.getAllProjects);
 
 module.exports = router;
