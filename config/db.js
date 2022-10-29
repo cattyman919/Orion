@@ -9,11 +9,17 @@ const pool = mysql.createPool({
 });
 
 // Test Connection
-// let sql = "SELECT * FROM projects;";
+// let sql = `
+// SELECT projects.id, projects.title, projects.description, projects.status,
+// GROUP_CONCAT(languages.language SEPARATOR ',') AS languages, projects.repo
+// FROM projects JOIN languages
+// ON projects.id = languages.project_ID
+// GROUP BY projects.id;
+// `;
 
 // pool.execute(sql, function (err, result) {
 //   if (err) throw err;
-//   console.log(result);
+//   console.log(result[0].languages);
 // });
 
 module.exports = pool.promise();

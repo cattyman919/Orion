@@ -36,7 +36,11 @@ class Project {
   }
 
   static findAll() {
-    let sql = "SELECT * FROM projects;";
+    let sql = `SELECT projects.id, projects.title, projects.description, projects.status,
+    GROUP_CONCAT(languages.language SEPARATOR ',') AS languages, projects.repo 
+    FROM projects JOIN languages 
+    ON projects.id = languages.project_ID
+    GROUP BY projects.id;`;
 
     return db.execute(sql);
   }

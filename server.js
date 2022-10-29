@@ -3,10 +3,6 @@ require("dotenv").config(); // ALLOWS ENVIRONMENT VARIABLES TO BE SET ON PROCESS
 const express = require("express");
 const app = express();
 
-app.get("/api", (req, res) => {
-  res.json({ users: ["user one", "user Two", "user Three"] });
-});
-
 // Middleware
 app.use(express.json());
 
@@ -20,7 +16,7 @@ app.use((err, req, res, next) => {
   console.log(err.code);
 
   res.status(500).json({
-    message: "Something went rely wrong",
+    message: "Something went really wrong",
   });
 });
 
